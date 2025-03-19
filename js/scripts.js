@@ -77,3 +77,13 @@ function imprimir () {
 window.onscroll = function() {
         console.log('You are scrolling')
 }
+
+//Seleccionar elementos y agregarles eventos
+
+const btnSend = document.querySelector('.boton--primario');
+btnSend.addEventListener('click', function(evento) {
+    console.log(evento); 
+    evento.preventDefault();//Quita la accion por default del sumbit que hace que se recargue la pagina al darle el sumbit
+    //sirve por ejemplo para validar el formulario
+    console.log('enviando formulario');
+})
