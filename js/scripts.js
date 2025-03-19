@@ -87,3 +87,33 @@ btnSend.addEventListener('click', function(evento) {
     //sirve por ejemplo para validar el formulario
     console.log('enviando formulario');
 })
+
+// Eventos en Inputs y Textarea
+
+const datos = {
+    nombre: '',
+    email: '',
+    mensaje: ''
+}
+
+const nombre = document.querySelector('#nombre');//Seleccionando el input con el Id 'nombre'
+const email = document.querySelector('#email');//Seleccionando el input con el Id 'email'
+const mensaje = document.querySelector('#mensaje');//Seleccionando el input con el Id 'mensaje'
+
+nombre.addEventListener('change', function() {//Se ejecuta hasta que dejo de estar focus en ese input
+    console.log('Escribiendo');
+});
+
+nombre.addEventListener('input', leerTexto);
+email.addEventListener('input', leerTexto);
+mensaje.addEventListener('input', leerTexto);
+
+function leerTexto(e){
+
+    datos[e.target.id] = e.target.value;
+
+    console.log(e.target);
+
+    console.log(datos)
+}
+ 
