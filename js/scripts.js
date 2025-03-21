@@ -116,10 +116,24 @@ mensaje.addEventListener('input', leerTexto);
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    //validar el formulario
+    const { nombre, email, mensaje } = datos;
+    //aplicar destructuring para extraer los valores de un objeto y crear las variables todo en un mismo paso
+
+    if (nombre && email ==='') {
+        console.log('El nombre y/o email está vacio')
+        mostrarAlerta('Todos los campos son obligatorios ⛔', true);
+        return; //return corta la ejecucion del codigo
+    }
+    
+    //Muestra el mensaje de confirmacion del envio
+    mostrarAlerta('El correo se envio correctamente')
+    
+
+
 
     //enviar el formulario
 
+    console.log('Enviando el formulario');
 
 });
 
@@ -127,10 +141,31 @@ function leerTexto(e){
 
     datos[e.target.id] = e.target.value;
 
-    console.log(e.target);
-
-    console.log(datos)
+    //console.log(e.target);
 }
+
+function mostrarAlerta(mensaje, error=null) {
+    const alerta = document.createElement('P');
+    alerta.textContent = mensaje;
+
+    if(error){
+        alerta.classList.add('error');
+    }else{
+        alerta.classList.add('correcto');
+    }
+
+    formulario.appendChild(alerta);
+
+    setTimeout(() => {
+        alerta.classList.add('fade-out'); // Agrega la clase para la animación
+    }, 4500);
+
+    setTimeout(() => {
+        alerta.remove();
+    }, 5000);
+    
+}
+
 
 
  

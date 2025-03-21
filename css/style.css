@@ -234,6 +234,9 @@ img {
     padding: 1rem;
     color: var(--blanco);
     text-transform: uppercase;
+    margin-bottom: .5rem;
+    opacity: 1; /* Inicialmente visible */
+    transition: opacity 1s ease-in-out; /* Efecto de transición */
 }
 .correcto {
     background-color: rgb(74, 185, 0);
@@ -241,7 +244,14 @@ img {
     padding: 1rem;
     color: var(--blanco);
     text-transform: uppercase;
+    opacity: 1; /* Inicialmente visible */
+    transition: opacity 1s ease-in-out; /* Efecto de transición */
 }
+
+.fade-out {
+    opacity: 0; /* Hace que el elemento desaparezca suavemente */
+}
+
 .contacto-bg {
     background-image: url(../img/contacto.jpg);
     height: 40rem;
